@@ -40,6 +40,7 @@ int main() {
      cout << "Correct, try a couple more." << endl;
 
  }
+ //it will display to the user that the answer is incorrect and including the input of the correctanswer will display the correct answer to the user. 
  else {
      cout << " Oh Oh ! The correct answer is" << correctAnswer << "." << endl;
  }
