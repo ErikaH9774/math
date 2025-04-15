@@ -2,19 +2,47 @@
 //
 
 #include <iostream>
+#include <random>
+#include <iomanip>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+namespace std {;
+
+int main() {
+    
+ //create a random number generator
+ random_device rd;
+ mt19937 gen(rd());
+
+ //define the range for 3-digit number (100,999)
+ uniform_int_distribution<> dist(100, 999);
+
+ //generate two random 3-digit numbers
+ int num1 = dist(gen);
+ int num2 = dist(gen);
+
+ //display the problem in a format of a Math Tutor 
+ //using setw(3) is to reserve 3 character spaces for a value when its on the output.
+ cout << "   " << setw(3) << num1 << endl;
+ cout << " + " << setw(3) << num2 << endl; 
+ cout << "-----" << endl;
+
+ // get user input 
+ int userAnswer;
+ cin >> userAnswer;
+
+ // making the correct answer equal to the user answer to make sure that they match will state that the answer is correct and by 
+ //using the else if method it will allow to print out "the answer is incorrect". 
+
+ int correctAnswer = num1 + num2;
+
+ if (userAnswer == correctAnswer)
+ {
+     cout << "Correct, try a couple more." << endl;
+
+ }
+ else {
+     cout << " Oh Oh ! The correct answer is" << correctAnswer << "." << endl;
+ }
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
